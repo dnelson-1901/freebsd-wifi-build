@@ -575,6 +575,7 @@ static int read_to_buf(struct file_info *fdata, char *buf)
 static int check_options(void)
 {
 	int ret;
+	int exceed_bytes;
 
 	if (inspect_info.file_name) {
 		ret = get_file_stat(&inspect_info);
@@ -679,15 +680,15 @@ static int check_options(void)
 				return -1;
 			}
 		} else {
-			if (kernel_info.file_size >
-			    rootfs_ofs - sizeof(struct fw_header)) {
-				ERR("kernel image is too big");
+			exceed_bytes = kernel_info.file_size - (rootfs_ofs - sizeof(struct fw_header));
+			if (exceed_bytes > 0) {
+				ERR("kernel image is too big by %i bytes", exceed_bytes);
 				return -1;
 			}
 
-			if (rootfs_info.file_size >
-			    (fw_max_len - rootfs_ofs)) {
-				ERR("rootfs image is too big");
+			exceed_bytes = rootfs_info.file_size - (fw_max_len - rootfs_ofs);
+			if (exceed_bytes > 0) {
+				ERR("rootfs image is too big by %i bytes", exceed_bytes);
 				return -1;
 			}
 		}

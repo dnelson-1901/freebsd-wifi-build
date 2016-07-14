@@ -1,8 +1,10 @@
 #!/bin/sh
 
-SCRIPT_NAME="`basename $0`"
-SCRIPT_DIR="$(dirname `realpath $0`)"
-CUR_DIR="`pwd`"
+BASE_DIR="$PWD" ; export BASE_DIR
+SCRIPT_NAME="$BASE_DIR/build/bin/build"
+SCRIPT_DIR="$BASE_DIR/build/bin/"
+CUR_DIR="$BASE_DIR/src/"
+cd $CUR_DIR
 
 # Check dependencies are met.
 ${SCRIPT_DIR}/check_deps || exit 1

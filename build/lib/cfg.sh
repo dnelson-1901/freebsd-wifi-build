@@ -68,15 +68,15 @@ X_FULL_FSSIZE=${X_FULL_FSSIZE:="1084741824"}
 X_FULL_FSINODES=${X_FULL_FSINODES:="1048576"}
 
 # Where to install things for TFTPBOOT.
-X_TFTPBOOT=${X_TFTPBOOT:="${CUR_DIR}/../tftpboot"}
+X_TFTPBOOT=${X_TFTPBOOT:="${BASE_DIR}/tftpboot"}
 
 # Variables defined by this script
 
 # X_MAKEOBJDIRPREFIX - where to place object files
-X_MAKEOBJDIRPREFIX="${CUR_DIR}/../obj/${BUILDNAME}/" ; export X_MAKEOBJDIRPREFIX
+X_MAKEOBJDIRPREFIX="${BASE_DIR}/obj/${BUILDNAME}/" ; export X_MAKEOBJDIRPREFIX
 
 # X_DESTDIR - where to place the install root 
-X_DESTDIR="${CUR_DIR}/../root/${BUILDNAME}"
+X_DESTDIR="${BASE_DIR}/root/${BUILDNAME}"
 
 # The default list of operations to run when doing a build
 # XXX eventually these should be required, not optional
@@ -90,7 +90,7 @@ X_BUILD_CLEANALL_DEFAULTS=${X_BUILD_CLEANALL_DEFAULTS:="cleanroot cleanobj"}
 # but I haven't decided whether they're configured by the user
 # or automatically generated.
 
-X_IMGBASE="${CUR_DIR}/../img/"
+X_IMGBASE="${BASE_DIR}/img/"
 
 # X_FSIMAGE
 X_FSIMAGE="${X_IMGBASE}/mfsroot-${CFGNAME}.img"
@@ -108,22 +108,22 @@ X_FSIMAGE_CMD=${X_FSIMAGE_CMD:="mkuzip"}
 X_FSIMAGE_ARGS=${X_FSIMAGE_ARGS:="-s 16384"}
 
 # X_STAGING_FSROOT
-X_STAGING_FSROOT="${CUR_DIR}/../mfsroot/${CFGNAME}"
+X_STAGING_FSROOT="${BASE_DIR}/mfsroot/${CFGNAME}"
 
 # X_STAGING_METALOG
-X_STAGING_METALOG="${CUR_DIR}/../mfsroot/METALOG.${CFGNAME}"
-X_STAGING_METALOG_MFSROOT="${CUR_DIR}/../mfsroot/METALOG.${CFGNAME}.mfsroot"
-X_STAGING_METALOG_TMP="${CUR_DIR}/../mfsroot/METALOG.${CFGNAME}.tmp"
+X_STAGING_METALOG="${BASE_DIR}/mfsroot/METALOG.${CFGNAME}"
+X_STAGING_METALOG_MFSROOT="${BASE_DIR}/mfsroot/METALOG.${CFGNAME}.mfsroot"
+X_STAGING_METALOG_TMP="${BASE_DIR}/mfsroot/METALOG.${CFGNAME}.tmp"
 
 # X_STAGING_TMPDIR
-X_STAGING_TMPDIR="${CUR_DIR}/../tmp/${CFGNAME}"
+X_STAGING_TMPDIR="${BASE_DIR}/tmp/${CFGNAME}"
 
 # X_KERNEL
 X_TFTPBOOT_KERNEL="${X_TFTPBOOT}/kernel.${KERNCONF}"
 X_KERNEL="${X_DESTDIR}/boot/kernel.${KERNCONF}/kernel"
 
 # Configuration filesystem image
-X_CFGFS="${CUR_DIR}/../cfgfs-${CFGNAME}.img"
+X_CFGFS="${BASE_DIR}/cfgfs-${CFGNAME}.img"
 
 X_UBOOT_KERNROOTIMG=${X_UBOOT_KERNROOTIMG:="NO"}
 TPLINK_SKIP_ROOTFS=${TPLINK_SKIP_ROOTFS:="NO"}
@@ -144,13 +144,13 @@ X_CFG_DEFAULT_TTY=${X_CFG_DEFAULT_TTY:="ttyu0"}
 # Package building
 #
 # Package building location
-X_PACKAGE_BUILD_DIR="${CUR_DIR}/../pkgroot/${CFGNAME}"
-X_PACKAGE_DISTFILE_DIR="${CUR_DIR}/../distfiles/"
+X_PACKAGE_BUILD_DIR="${BASE_DIR}/pkgroot/${CFGNAME}"
+X_PACKAGE_DISTFILE_DIR="${BASE_DIR}/distfiles/"
 
 # Port-build base
 #X_PORTBUILD_DIR=${SCRIPT_DIR}/../../port-build/ ; export X_PORTBUILD_DIR
 X_PACKAGE_ROOTDIR="${X_DESTDIR}"
 X_PACKAGE_SUBDIR="${TARGET}.${TARGET_ARCH}"
-X_PACKAGE_BUILDROOT_DIR="${CUR_DIR}/../pkgbuild/${X_BUILD_BASE_CFG}/${X_PACKAGE_SUBDIR}"
-X_PACKAGE_PKGDIR="${CUR_DIR}/../pkgdir/${X_BUILD_BASE_CFG}"
+X_PACKAGE_BUILDROOT_DIR="${BASE_DIR}/pkgbuild/${X_BUILD_BASE_CFG}/${X_PACKAGE_SUBDIR}"
+X_PACKAGE_PKGDIR="${BASE_DIR}/pkgdir/${X_BUILD_BASE_CFG}"
 X_PACKAGE_ARCHSTR=""

@@ -82,4 +82,10 @@ else
 	|| exit 1
 fi
 
+# take our base image, prepend a uboot image, and pad the whole thing out to
+# 8192512 bytes.  This image will be accepted by uboot's recovery mode.
+
+cat ${X_TFTPBOOT}/uboot.bin ${X_TFTPBOOT}/${CFGNAME}.factory.bin /dev/zero |
+ dd count=16001 of=${X_TFTPBOOT}/${CFGNAME}_boot.bin
+
 exit 0

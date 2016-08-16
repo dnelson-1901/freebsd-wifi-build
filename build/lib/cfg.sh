@@ -27,7 +27,8 @@ if [ "x${DOEXIT}" = "xYES" ]; then
 fi
 
 # BUILD_FLAGS is set by the environment
-BUILD_FLAGS=${BUILD_FLAGS:="NO_CLEAN=1 -j2"}
+BUILD_FLAGS=${BUILD_FLAGS:="NO_CLEAN=1"}
+# -j2
 
 # CFGNAME
 # BUILDNAME

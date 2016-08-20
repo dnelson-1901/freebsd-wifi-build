@@ -38,6 +38,8 @@ port_checksum()
 
 port_fetch()
 {
+	local X_PKGFILE="`basename ${PKGDISTFILE}`"
+        if [ -f ${X_PACKAGE_DISTFILE_DIR}/$X_PKGFILE ] ; then return ; fi
 
 	if [ "x${PKGDISTFILE}" = "x" ]; then
 		echo "ERROR: need PKGDISTFILE to fetch"

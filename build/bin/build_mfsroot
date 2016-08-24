@@ -38,6 +38,7 @@ INSTALL_DEF_LIB="${INSTALL_PROG} -o root -g wheel -m 0755"
 INSTALL_DEF_LINK="${INSTALL_PROG} -o root -g wheel -m 0755 -l s"
 
 echo "*** Deleting old file system.."
+mkdir -p ${X_STAGING_FSROOT}
 chflags -R noschg ${X_STAGING_FSROOT}
 rm -rf ${X_STAGING_FSROOT}
 rm -rf ${X_STAGING_TMPDIR}

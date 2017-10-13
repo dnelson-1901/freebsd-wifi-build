@@ -204,7 +204,7 @@ ${INSTALL_DEF_BIN} ${X_DESTDIR}/usr/bin/grep ${X_STAGING_FSROOT}/usr/bin/
 ${INSTALL_DEF_LIB} ${X_DESTDIR}/usr/lib/libgnuregex.so.5 ${X_STAGING_FSROOT}/usr/lib/
 ${INSTALL_DEF_LIB} ${X_DESTDIR}/usr/lib/libbz2.so.4 ${X_STAGING_FSROOT}/usr/lib/
 ${INSTALL_DEF_LIB} ${X_DESTDIR}/lib/libz.so.6 ${X_STAGING_FSROOT}/lib/
-${INSTALL_DEF_LIB} ${X_DESTDIR}/usr/lib/libarchive.so.6 ${X_STAGING_FSROOT}/usr/lib/
+${INSTALL_DEF_LIB} ${X_DESTDIR}/usr/lib/libarchive.so.7 ${X_STAGING_FSROOT}/usr/lib/
 ${INSTALL_DEF_LIB} ${X_DESTDIR}/lib/libmd.so.6 ${X_STAGING_FSROOT}/lib/
 ${INSTALL_DEF_LIB} ${X_DESTDIR}/usr/lib/liblzma.so.5 ${X_STAGING_FSROOT}/usr/lib/
 ${INSTALL_DEF_LIB} ${X_DESTDIR}/lib/libxo.so.0 ${X_STAGING_FSROOT}/lib/
@@ -258,6 +258,7 @@ if false ; then
 ${INSTALL_DEF_BIN} ${X_DESTDIR}/usr/sbin/wlandebug ${X_STAGING_FSROOT}/usr/sbin/
 ${INSTALL_DEF_BIN} ${X_DESTDIR}/usr/local/bin/wlanstats ${X_STAGING_FSROOT}/usr/bin/
 ${INSTALL_DEF_BIN} ${X_DESTDIR}/usr/local/bin/wlanwatch ${X_STAGING_FSROOT}/usr/bin/
+${INSTALL_DEF_BIN} ${X_DESTDIR}/usr/local/bin/wlanwds ${X_STAGING_FSROOT}/usr/bin/
 fi
 
 # login and pam
@@ -456,6 +457,6 @@ if [ "${MFSROOT_INC_MODULES}" = "YES" ]; then
 	echo "*** Including modules.."
 
 	for i in ${MFSROOT_INC_MODULE_LIST}; do
-		${INSTALL_DEF_KLD} ${X_DESTDIR}/boot/kernel.${KERNCONF}/${i}.ko ${X_STAGING_FSROOT}/boot/kernel/
+		${INSTALL_DEF_KLD} ${X_DESTDIR}/boot/kernel.${KERNCONF}/${i}.ko ${X_STAGING_FSROOT}/boot/kernel/ || exit 1
 	done
 fi

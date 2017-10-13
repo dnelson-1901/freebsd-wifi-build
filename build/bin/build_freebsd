@@ -71,12 +71,12 @@ if [ "${X_SKIP_AP_STUFF}" = "YES" ]; then
 	echo 'WITHOUT_NDIS=YES' >> ${X_DESTDIR}/../src.conf.${BUILDNAME}
 	echo 'WITHOUT_IPX=YES' >> ${X_DESTDIR}/../src.conf.${BUILDNAME}
 	echo 'WITHOUT_ATM=YES' >> ${X_DESTDIR}/../src.conf.${BUILDNAME}
-#	echo 'WITHOUT_ICONV=YES' >> ${X_DESTDIR}/../src.conf.${BUILDNAME}
 	echo 'WITHOUT_CLANG_IS_CC=YES' >> ${X_DESTDIR}/../src.conf.${BUILDNAME}
 	echo 'WITH_GCC=YES' >> ${X_DESTDIR}/../src.conf.${BUILDNAME}
 	echo 'WITHOUT_CASPER=YES' >> ${X_DESTDIR}/../src.conf.${BUILDNAME}
 	echo 'WITHOUT_CAPSICUM=YES' >> ${X_DESTDIR}/../src.conf.${BUILDNAME}
 	echo 'WITHOUT_TESTS=YES' >> ${X_DESTDIR}/../src.conf.${BUILDNAME}
+	echo 'WITHOUT_CLANG=YES' >> ${X_DESTDIR}/../src.conf.${BUILDNAME}
 	echo 'NO_SHARED=NO' >> ${X_DESTDIR}/../src.conf.${BUILDNAME}
 fi
 
